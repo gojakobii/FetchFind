@@ -68,3 +68,19 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### TO DO:
+
+1. Add logout button
+    a. Navigate back to login screen
+    b. Underneath profile button once logged in
+2. Implement filtering
+    b. Filter by age (min_age and max_age) (OPTIONAL)
+3. Implement zip code matching by posting to /location endpoint once in FetchFind
+    a. Assign attributes in returned Dog mapping
+4. Have logo escape hatch route to all dogs page when logged in, and log in screen if logged out
+    a. Different nav layout for screens once logged in
+5. Follow design philosophy of fetch.com
+6. Have previous/next button disappear or grey out when at respective end
+7. Route to new screen for matching dog or overlay?
+8. Add elements from all dogs page to favorites (sort, filter, pagination, etc.)
