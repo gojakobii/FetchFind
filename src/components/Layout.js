@@ -28,7 +28,7 @@ function Layout( props ) {
                     </Nav>
                 </Container>
             </Navbar>
-            <div style={{margin: "1rem"}}>
+            <div>
                 <FavoriteDogsContext.Provider value={[favorites, setFavorites]}>
                     <Outlet/>
                 </FavoriteDogsContext.Provider>
