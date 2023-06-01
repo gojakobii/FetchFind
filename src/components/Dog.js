@@ -51,20 +51,17 @@ function Dog(props) {
 
     // }, []);
 
-    
-    return <Card>
-        <Card.Img width="auto" max-width="100px" height="auto" max-height="100px" src={props.img} alt="Dog photo"/>
-            <Card.Body>
-                <Card.Title>{props.name}</Card.Title>
-                <Card.Subtitle>{props.breed}</Card.Subtitle>
-                <Card.Text> {props.age}, {props.zip_code} </Card.Text>
-                <Button 
-                    onClick={handleFavoriteDog}
-                    variant= {(favStatus)? "danger" : "primary"}>
-                    {(favStatus)? "Remove from Favorites" : "Add to Favorites"}
-                </Button>
-            </Card.Body>
-    </Card>
+    return (
+        <div className="relative m-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <img className="w-full h-[45vw] md:h-[20vw] object-cover" src={props.img} alt="Dog photo"></img>
+            <div className="px-6 py-4">
+                <div className="font-bold text-xl mb-2">{props.name}</div>
+                <p className="text-gray-700 text-base">{props.breed}</p>
+                <p className="text-gray-700 text-base">{props.age}, {props.zip_code}</p>
+            </div>
+            <button className="absolute top-0 right-0 m-2 rounded bg-blue-500 p-2 text-white hover:bg-blue-800" onClick={handleFavoriteDog}>{"<3"}</button>
+        </div>
+    )
 }
 
 export default Dog;

@@ -84,3 +84,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 6. Have previous/next button disappear or grey out when at respective end
 7. Route to new screen for matching dog or overlay?
 8. Add elements from all dogs page to favorites (sort, filter, pagination, etc.)
+9. Download fonts
+10. Apply radial gradient to whole background not just Login

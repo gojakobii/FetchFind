@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         'footer-texture': "url('./assets/footer-background.jpg')",
-        'login': "url('./assets/home-everyday-delight.png')"
+        'footer-logo': "url('./assets/footer-logo.svg')",
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       }
     },
   },

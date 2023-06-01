@@ -40,36 +40,37 @@ const FavoriteDogs = ( props ) => {
     };
 
 
-    return <div>
-        <h1>Favorites</h1>
-        {doDisplay && (
-        <Button onClick={match}>
-            Find your match!
-        </Button>
-        )}
-        < Container fluid >
-            <Row>
-            {
-                Object.values(favorites).map((dog) => {
-                    return <Col 
-                        xs={12} sm={6} md={4} lg={3} xl={2}
-                        key={dog.id}>
-                    <Dog
-                        id={dog.id}
-                        name={dog.name}
-                        img={dog.img}
-                        age={dog.age}
-                        zip_code={dog.zip_code}
-                        breed={dog.breed}
-                    />
-                    </Col>
-                    }
-                )
-            }
-            </Row>
-        </Container>
-
-    </div>
+    return (
+        <div>
+            <h1>Favorites</h1>
+            {doDisplay && (
+            <Button onClick={match}>
+                Find your match!
+            </Button>
+            )}
+            < Container fluid >
+                <Row>
+                {
+                    Object.values(favorites).map((dog) => {
+                        return <Col 
+                            xs={12} sm={6} md={4} lg={3} xl={2}
+                            key={dog.id}>
+                        <Dog
+                            id={dog.id}
+                            name={dog.name}
+                            img={dog.img}
+                            age={dog.age}
+                            zip_code={dog.zip_code}
+                            breed={dog.breed}
+                        />
+                        </Col>
+                        }
+                    )
+                }
+                </Row>
+            </Container>
+        </div>
+    )
 }
 
 export default FavoriteDogs;

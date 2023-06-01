@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
 
 import Filter from "./Filter"
 import BreedSort from "./BreedSort"
@@ -42,7 +41,7 @@ function FetchFind(props) {
         };
 
         const getDogs = async (ids) => {
-            const url = `https://frontend-take-home-service.fetch.com/dogs`; // configure for pagination
+            const url = `https://frontend-take-home-service.fetch.com/dogs`;
 
             const response = await fetch(url, {
                 method: 'POST',
@@ -85,18 +84,36 @@ function FetchFind(props) {
         getDogBreeds();
     }, []);
 
-    return <div>
-        <h1>FetchFind</h1>
-        <Filter
-            allBreeds={allBreeds}
-            selectedBreeds={selectedBreeds}
-            setSelectedBreeds={setSelectedBreeds}
-        />
+    return (
+    <div>
         <BreedSort
             sort={sort}
             setSort={setSort}
         />
-        < Container fluid >
+        <div className="grid md:grid-cols-2 " >
+            <Filter
+                allBreeds={allBreeds}
+                selectedBreeds={selectedBreeds}
+                setSelectedBreeds={setSelectedBreeds}
+            />
+            <div className="grid grid-cols-2 md:grid-cols-5">
+                {
+                    dogs.map((dog) => {
+                        return <Dog
+                            id={dog.id}
+                            name={dog.name}
+                            img={dog.img}
+                            age={dog.age}
+                            zip_code={dog.zip_code}
+                            breed={dog.breed}
+                        />
+                        }
+                    )
+                }
+            </div>
+        </div>
+        
+        {/* < Container fluid >
             <Row>
             {
                 dogs.map((dog) => {
@@ -116,13 +133,14 @@ function FetchFind(props) {
                 )
             }
             </Row>
-        </Container>
+        </Container> */}
         <Pagination 
             page={page}
             totalPages={totalPages}
             setPage={setPage}
         />
     </div>
+    )
 }
 
 export default FetchFind;
