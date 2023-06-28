@@ -101,31 +101,28 @@ function Login() {
                     </div>
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                         <form onSubmit={login} >
-                            <div>
-                                <input 
-                                    className="font-lexend mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#800f74] sm:text-md sm:leading-6"
-                                    ref={inputName}
-                                    placeholder="Name"
-                                    id="name"
-                                    type="text"
-                                    autoComplete="name"
-                                    required
-                                />
-                                <input className="font-lexend mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#800f74] sm:text-md sm:leading-6"
-                                        ref={inputEmail}
-                                        placeholder="Email address"
-                                        id="email"
-                                        type="email"
-                                        autoComplete="email"
-                                        required/>
-                            </div>
-                            <div></div>
-                                <button
-                                    type="submit"
-                                    className="font-syne font-semibold mt-5 w-full px-10 flex justify-center rounded-md bg-[#2d0f38] py-1.5 text-md leading-6 text-white shadow-sm hover:bg-[#800f74] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2d0f38]"
-                                >
-                                    Sign in
-                                </button>
+                            <input 
+                                className="font-lexend mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#800f74] sm:text-md sm:leading-6"
+                                ref={inputName}
+                                placeholder="Name"
+                                id="name"
+                                type="text"
+                                autoComplete="name"
+                                required
+                            />
+                            <input className="font-lexend mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#800f74] sm:text-md sm:leading-6"
+                                    ref={inputEmail}
+                                    placeholder="Email address"
+                                    id="email"
+                                    type="email"
+                                    autoComplete="email"
+                                    required/>
+                            <button
+                                type="submit"
+                                className="font-syne font-semibold mt-5 w-full px-10 flex justify-center rounded-md bg-[#2d0f38] py-1.5 text-md leading-6 text-white shadow-sm hover:bg-[#800f74] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2d0f38]"
+                            >
+                                Sign in
+                            </button>
                         </form>
                     <p className="mt-5 text-center font-lexend text-md text-[#2d0f38]">
                         Not a member?{' '}

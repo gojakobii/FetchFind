@@ -32,7 +32,6 @@ export default function MyModal({visibleModal, setVisibleModal, match}) {
               >
                 <Dialog.Panel className="overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all">
                   <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                    <div className="">
                       <div className="mt-3 text-center sm:mt-0">
                         <Dialog.Title as="h3" className="font-syne font-semibold leading-6 text-[#2d0f38]">
                           Your forever friend is...
@@ -45,7 +44,6 @@ export default function MyModal({visibleModal, setVisibleModal, match}) {
                         </div>
                       </div>
                     </div>
-                  </div>
                   <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                     <button
                       type="button"

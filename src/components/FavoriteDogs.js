@@ -13,7 +13,7 @@ function FavoriteDogs(props) {
     const [page, setPage] = useState(1);
     const { favorites } = useFavorites();
     
-    const size = 5;
+    const size = 40;
 
     const handleMatch = async() => {
         const url = `https://frontend-take-home-service.fetch.com/dogs/match`;

@@ -17,10 +17,19 @@ function Dog(props) {
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-t-lg xl:aspect-h-7 xl:aspect-w-7">
                     <img src={props.img} alt="Dog photo" className="h-full w-full object-cover object-center "/>
                 </div>
-                <div className="px-6 py-4 text-center">
-                    <h1 className="font-syne font-medium text-xl mb-1 text-[#800f74]">{props.name}</h1>
-                    <p className="text-gray-700 font-lexend text-sm">{props.breed}</p>
-                    <p className="text-gray-700 font-lexend text-sm">{props.age}, {props.zip_code}</p>
+                <div className="px-6 py-3 text-center">
+                    <h1 className="font-syne font-medium text-2xl text-[#800f74]">{props.name}</h1>
+                    <p className="text-gray-700 font-lexend text-md">{props.breed}</p>
+                    <div className="flex justify-center gap-5 mt-1 border-t border-gray-200">
+                        <div className="mt-1">
+                            <h3 className="text-gray-500 font-lexend text-sm">Age</h3>
+                            <p className="text-gray-700 font-lexend text-sm">{props.age}</p>
+                        </div>
+                        <div className="mt-1">
+                            <h3 className="text-gray-500 font-lexend text-sm">Zip</h3>
+                            <p className="text-gray-700 font-lexend text-sm">{props.zip_code}</p>
+                        </div>
+                    </div>
                 </div>
                 {
                     props.isFavorite ? 

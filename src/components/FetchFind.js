@@ -57,6 +57,7 @@ function FetchFind(props) {
             }
         };
 
+        console.log(selectedBreeds)
         const getDogs = async (ids) => {
             const url = `https://frontend-take-home-service.fetch.com/dogs`;
 
@@ -104,7 +105,8 @@ function FetchFind(props) {
     const handleBreedSelect = (e) => {
       const breed = e.target.value;
       
-      setPage(1);
+      // setPage(1);
+      console.log(breed)
       setSelectedBreeds((prevSelectedBreeds) => {
         if (prevSelectedBreeds.includes(breed)) {
           return prevSelectedBreeds.filter((selectedBreed) => selectedBreed !== breed);
@@ -169,6 +171,25 @@ function FetchFind(props) {
                               </Disclosure.Button>
                             </h3>
                             <Disclosure.Panel className="pt-6">
+                              {
+                                selectedBreeds.length !== 0 ? 
+                                  <div className="mb-5">
+                                    {
+                                      selectedBreeds.map((breed) => (
+                                        <button 
+                                          className="font-lexend text-sm mr-1 mb-1 p-[6px] rounded-md bg-gray-200 hover:bg-gray-300"
+                                          value={breed}
+                                          onClick={handleBreedSelect}
+                                          >
+                                            {breed} X
+                                        </button>
+                                        )
+                                      )
+                                    }
+                                  </div> 
+                                :
+                                  null
+                              }
                               <div className="overflow-y-scroll max-h-52 space-y-6">
                                 {
                                   allBreeds.map((breed) => (
@@ -332,6 +353,25 @@ function FetchFind(props) {
                             </Disclosure.Button>
                           </h3>
                           <Disclosure.Panel className="pt-6">
+                            {
+                              selectedBreeds.length !== 0 ? 
+                                <div className=" mb-5">
+                                  {
+                                    selectedBreeds.map((breed) => (
+                                      <button 
+                                        className=" text-sm mr-1 mb-1 p-[6px] rounded-md bg-gray-200 hover:bg-gray-300"
+                                        value={breed}
+                                        onClick={handleBreedSelect}
+                                        >
+                                          {breed} X
+                                      </button>
+                                      )
+                                    )
+                                  }
+                                </div> 
+                              :
+                                null
+                            }
                             <div className="overflow-y-scroll max-h-36 space-y-4">
                               {
                                 allBreeds.map((breed) => (
