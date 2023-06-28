@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/fetchfind/static/css/main.e0e17ef4.css",
+    "main.js": "/fetchfind/static/js/main.5cfd9f2a.js",
+    "static/js/787.7c687151.chunk.js": "/fetchfind/static/js/787.7c687151.chunk.js",
+    "static/media/footer-background.jpg": "/fetchfind/static/media/footer-background.52423e463f17d5e3cd52.jpg",
+    "index.html": "/fetchfind/index.html",
+    "main.e0e17ef4.css.map": "/fetchfind/static/css/main.e0e17ef4.css.map",
+    "main.5cfd9f2a.js.map": "/fetchfind/static/js/main.5cfd9f2a.js.map",
+    "787.7c687151.chunk.js.map": "/fetchfind/static/js/787.7c687151.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e0e17ef4.css",
+    "static/js/main.5cfd9f2a.js"
+  ]
+}
