@@ -1,66 +1,42 @@
-import { useState, useContext, useEffect } from "react";
-import { Card, Button } from "react-bootstrap";
-import Pagination from 'react-bootstrap/Pagination';
-
-import FavoriteDogsContext from "../contexts/FavoriteDogsContext";
+import { useFavorites } from "../contexts/FavoritesContext";
 
 function Dog(props) {
-    const handleFavoriteDog = () => {
-        setFavorites(() => {
-            if (favStatus) {
-                const {[props.id]: removedDog, ...updatedFavorites} = favorites;
-                return updatedFavorites;
-            } else {
-                return {...favorites, [props.id]:props};
-            }
-        });
+    const { addFavorite, removeFavorite } = useFavorites();
 
-        setFavStatus(!favStatus);
+    const handleFavoriteDog = () => {
+        if (props.isFavorite) {
+            removeFavorite(props);
+        } else {
+            addFavorite(props);
+        }
     }
 
-    const [favorites, setFavorites] = useContext(FavoriteDogsContext);
-    const [favStatus, setFavStatus] = useState(props.id in favorites);
-    
-    // const [city, setCity] = useState('');
-    // const [state, setState] = useState('');
-
-    // useEffect(() => {
-    //     const fetchCity = async () => {
-    //         const response = await fetch(`https://frontend-take-home-service.fetch.com/locations`, {
-    //             method: "POST",
-    //             headers: {
-    //                 "Content-Type": "application/json"
-    //             },
-    //             body: JSON.stringify([props.zip]),
-    //             credentials: 'include',
-    //         });
-
-    //         if (response.ok) {
-    //             const data = await response.json();
-    //             // console.log(data)
-    //             if (data[0] !== null) {
-    //                 setCity(data[0].city);
-    //                 setState(data[0].state);
-    //             }
-    //         } else {
-    //             console.error("Failed to fetch location data");
-    //         }
-    //     };
-    
-    //     fetchCity();
-
-    // }, []);
-
     return (
-        <div className="relative m-2 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <img className="w-full h-[45vw] md:h-[20vw] object-cover" src={props.img} alt="Dog photo"></img>
-            <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">{props.name}</div>
-                <p className="text-gray-700 text-base">{props.breed}</p>
-                <p className="text-gray-700 text-base">{props.age}, {props.zip_code}</p>
+        <a className="group">
+            <div className="relative rounded-lg shadow">
+                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-t-lg xl:aspect-h-7 xl:aspect-w-7">
+                    <img src={props.img} alt="Dog photo" className="h-full w-full object-cover object-center "/>
+                </div>
+                <div className="px-6 py-4 text-center">
+                    <h1 className="font-syne font-medium text-xl mb-1 text-[#800f74]">{props.name}</h1>
+                    <p className="text-gray-700 font-lexend text-sm">{props.breed}</p>
+                    <p className="text-gray-700 font-lexend text-sm">{props.age}, {props.zip_code}</p>
+                </div>
+                {
+                    props.isFavorite ? 
+                    <button className="rounded-full w-10 h-10 shadow-md absolute top-0 right-0 m-2 bg-white p-2 transition-colors text-[#800f74]" onClick={handleFavoriteDog}>
+                        <svg className="absolute top-0 right-0 m-2 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+                    </button> :
+                    <button className="rounded-full w-10 h-10 shadow-md absolute top-0 right-0 m-2 bg-white bg-opacity-50 p-2 text-white transition-colors hover:text-[#800f74] hover:bg-white" onClick={handleFavoriteDog}>
+                        <svg className="absolute top-0 right-0 m-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                        </svg>
+                    </button>
+                }
             </div>
-            <button className="absolute top-0 right-0 m-2 rounded bg-blue-500 p-2 text-white hover:bg-blue-800" onClick={handleFavoriteDog}>{"<3"}</button>
-        </div>
+        </a>
     )
 }
 

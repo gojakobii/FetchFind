@@ -8,10 +8,17 @@ module.exports = {
       backgroundImage: {
         'footer-texture': "url('./assets/footer-background.jpg')",
         'footer-logo': "url('./assets/footer-logo.svg')",
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'background': "url('./assets/home-everyday-delight.png')"
+      },
+      fontFamily: {
+        'syne': ['Syne', 'sans-serif'],
+        'lexend': ['Lexend', 'sans-serif']
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/forms')
+  ],
 }
 

@@ -1,23 +1,21 @@
-import { useState, useContext } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { useState } from "react";
 
-import FavoriteDogsContext from "../contexts/FavoriteDogsContext";
+import Pagination from "./Pagination"
 
 import Dog from "./Dog"
+import Match from "./Match"
 
-const FavoriteDogs = ( props ) => {
+import { useFavorites } from "../contexts/FavoritesContext";
+
+function FavoriteDogs(props) {
     const [matchDog, setMatchDog] = useState({});
-    const [favorites] = useContext(FavoriteDogsContext);
+    const [visibleModal, setVisibleModal] = useState(false);
+    const [page, setPage] = useState(1);
+    const { favorites } = useFavorites();
     
-    const doDisplay = Object.keys(favorites).length >= 2;
+    const size = 5;
 
-    if (Object.values(favorites).length == 0) {
-        return <div>
-            <h1>Ruh-roh! Looks like you haven't favorited any pups!</h1>
-            </div>
-    }
-
-    const match = async () => {
+    const handleMatch = async() => {
         const url = `https://frontend-take-home-service.fetch.com/dogs/match`;
         const response = await fetch(url, {
             method: 'POST',
@@ -31,44 +29,65 @@ const FavoriteDogs = ( props ) => {
         if (response.ok) {
             const data = await response.json();
 
-            // console.log(favorites[data.match])
             setMatchDog(favorites[data.match]);
+            setVisibleModal(true);
 
         } else {
             console.error(`Failed to fetch dogs' ids`);
         }
     };
 
-
     return (
-        <div>
-            <h1>Favorites</h1>
-            {doDisplay && (
-            <Button onClick={match}>
-                Find your match!
-            </Button>
-            )}
-            < Container fluid >
-                <Row>
-                {
-                    Object.values(favorites).map((dog) => {
-                        return <Col 
-                            xs={12} sm={6} md={4} lg={3} xl={2}
-                            key={dog.id}>
-                        <Dog
-                            id={dog.id}
-                            name={dog.name}
-                            img={dog.img}
-                            age={dog.age}
-                            zip_code={dog.zip_code}
-                            breed={dog.breed}
-                        />
-                        </Col>
-                        }
-                    )
-                }
-                </Row>
-            </Container>
+        <div className="bg-white">
+            <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between pb-6 pt-16 border-b border-gray-200">
+                    <h1 className="text-4xl font-syne font-extrabold tracking-tight text-[#2d0f38]">Fetched Favorites</h1>
+                    {Object.values(favorites).length >= 2 ?
+                            <button className="font-syne bg-[#2d0f38] hover:bg-[#800f74] text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={handleMatch}>Discover your Match</button>
+                        :
+                            null
+                    }
+                </div>
+                <section aria-labelledby="dogs-heading" className="pb-24 pt-6">
+                    <div className="mx-auto max-w-2xl  lg:max-w-7xl">
+                        {Object.values(favorites).length > 0 ? (
+                            <div className="grid gap-x-6 gap-y-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gap-x-8">
+                            {Object.values(favorites).slice((page-1)*size, page*size).map((dog) => {
+                              const isFavorite = dog.id in favorites;
+
+                              return (
+                                <Dog
+                                  key={dog.id}
+                                  id={dog.id}
+                                  name={dog.name}
+                                  img={dog.img}
+                                  age={dog.age}
+                                  zip_code={dog.zip_code}
+                                  breed={dog.breed}
+                                  isFavorite={isFavorite}
+                                />
+                              )
+                            })}
+                            </div>
+                            ) : (
+                                <h1 className="text-center font-bold">Ruh-roh! No dogs were found!</h1>
+                        )}
+                    </div>
+                    <Pagination 
+                        page={page}
+                        totalPages={Object.values(favorites).length/size}
+                        size={size}
+                        showSize={Object.values(favorites).slice((page-1)*size, page*size).length}
+                        totalResults={Object.values(favorites).length}
+                        setPage={setPage}
+                    />
+                    <Match 
+                        visibleModal={visibleModal}
+                        setVisibleModal={setVisibleModal}
+                        match={matchDog}
+                    />
+                </section>
+            </main>
         </div>
     )
 }

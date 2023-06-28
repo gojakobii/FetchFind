@@ -10,9 +10,11 @@ function App() {
   return (
     <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/">
             <Route index element={<Login />} />
             <Route path="/login" element={<Login />}></Route>
+          </Route>
+          <Route element={<Layout />}>
             <Route path="/find" element={<FetchFind />}></Route>
             <Route path="/favorites" element={<FavoriteDogs />}></Route>
             <Route path="*" element={<NoMatch />} />
