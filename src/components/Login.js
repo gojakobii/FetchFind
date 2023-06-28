@@ -99,12 +99,6 @@ function Login() {
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-[300px] -translate-y-1/2 -z-[20] hidden md:block">
                         <div className="w-[900px] h-[900px] rounded-full bg-[#8dcfdb]"></div>
                     </div>
-                    <div className="absolute top-1/2 left-1/2 transform translate-y-[100px] -translate-x-[40px] -z-[20] hidden md:block">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
-                            className="w-9 h-9 text-[#69bac8]">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                        </svg>
-                    </div>
                     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                         <form onSubmit={login} >
                             <div>
