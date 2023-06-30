@@ -24,11 +24,11 @@ function FetchFind(props) {
     const [totalResults, setTotalResults] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
     const [sort, setSort] = useState('asc')
-    const { favorites, addFavorite, removeFavorite } = useFavorites();
+    const { favorites } = useFavorites();
     const size = 40;
 
     useEffect(() => {
-        const findDogs = async () => { // incorporate params for filtering i.e. breed/age/zip
+        const findDogs = async () => {
             const queryParams = new URLSearchParams();
   
             if (selectedBreeds.length > 0) {
@@ -57,7 +57,6 @@ function FetchFind(props) {
             }
         };
 
-        console.log(selectedBreeds)
         const getDogs = async (ids) => {
             const url = `https://frontend-take-home-service.fetch.com/dogs`;
 
@@ -105,8 +104,7 @@ function FetchFind(props) {
     const handleBreedSelect = (e) => {
       const breed = e.target.value;
       
-      // setPage(1);
-      console.log(breed)
+      setPage(1);
       setSelectedBreeds((prevSelectedBreeds) => {
         if (prevSelectedBreeds.includes(breed)) {
           return prevSelectedBreeds.filter((selectedBreed) => selectedBreed !== breed);
@@ -177,6 +175,7 @@ function FetchFind(props) {
                                     {
                                       selectedBreeds.map((breed) => (
                                         <button 
+                                          key={breed}
                                           className="font-lexend text-sm mr-1 mb-1 p-[6px] rounded-md bg-gray-200 hover:bg-gray-300"
                                           value={breed}
                                           onClick={handleBreedSelect}
@@ -231,9 +230,9 @@ function FetchFind(props) {
                           </h3>
                           <Disclosure.Panel className="pt-6">
                             <div className="space-y-4">
-                              <label className="block font-lexend text-gray-700 text-sm mb-2" for="minAge">Minimum age</label>
+                              <label className="block font-lexend text-gray-700 text-sm mb-2" htmlFor="minAge">Minimum age</label>
                               <input className="shadow font-lexend appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:ring-[#800f74] focus:shadow-outline" value={minAge} onChange={(e) => setMinAge(e.target.value)} id="minAge" type="number" min="0" max={maxAge}/>
-                              <label className="block font-lexend text-gray-700 text-sm mb-2 my-3" for="maxAge">Maximum age</label>
+                              <label className="block font-lexend text-gray-700 text-sm mb-2 my-3" htmlFor="maxAge">Maximum age</label>
                               <input className="shadow font-lexend appearance-none rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:ring-[#800f74] focus:shadow-outline" value={maxAge} onChange={(e) => setMaxAge(e.target.value)} id="maxAge" type="number" min={minAge}/>
                             </div>
                           </Disclosure.Panel>
@@ -359,6 +358,7 @@ function FetchFind(props) {
                                   {
                                     selectedBreeds.map((breed) => (
                                       <button 
+                                        key={breed}
                                         className=" text-sm mr-1 mb-1 p-[6px] rounded-md bg-gray-200 hover:bg-gray-300"
                                         value={breed}
                                         onClick={handleBreedSelect}
@@ -413,9 +413,9 @@ function FetchFind(props) {
                           </h3>
                           <Disclosure.Panel className="pt-6">
                             <div className="space-y-4">
-                              <label className="block text-gray-700 text-sm mb-2" for="minAge">Minimum age</label>
+                              <label className="block text-gray-700 text-sm mb-2" htmlFor="minAge">Minimum age</label>
                               <input className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:ring-[#800f74] focus:shadow-outline" value={minAge} onChange={(e) => setMinAge(e.target.value)} id="minAge" type="number" min="0" max={maxAge}/>
-                              <label className="block text-gray-700 text-sm mb-2 my-3" for="maxAge">Maximum age</label>
+                              <label className="block text-gray-700 text-sm mb-2 my-3" htmlFor="maxAge">Maximum age</label>
                               <input className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:ring-[#800f74] focus:shadow-outline" value={maxAge} onChange={(e) => setMaxAge(e.target.value)} id="maxAge" type="number" min={minAge}/>
                             </div>
                           </Disclosure.Panel>
