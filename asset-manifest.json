@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/FetchFind/static/css/main.101cd59a.css",
-    "main.js": "/FetchFind/static/js/main.fab69e62.js",
+    "main.js": "/FetchFind/static/js/main.1d0244c8.js",
     "static/js/787.7c687151.chunk.js": "/FetchFind/static/js/787.7c687151.chunk.js",
     "static/media/footer-background.jpg": "/FetchFind/static/media/footer-background.52423e463f17d5e3cd52.jpg",
     "index.html": "/FetchFind/index.html",
     "main.101cd59a.css.map": "/FetchFind/static/css/main.101cd59a.css.map",
-    "main.fab69e62.js.map": "/FetchFind/static/js/main.fab69e62.js.map",
+    "main.1d0244c8.js.map": "/FetchFind/static/js/main.1d0244c8.js.map",
     "787.7c687151.chunk.js.map": "/FetchFind/static/js/787.7c687151.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.101cd59a.css",
-    "static/js/main.fab69e62.js"
+    "static/js/main.1d0244c8.js"
   ]
 }
