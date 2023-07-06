@@ -8,7 +8,7 @@ import NoMatch from "./components/NoMatch";
 
 function App() {
   return (
-    <BrowserRouter basename="/FetchFind">
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/">
           <Route index element={<Login />} />

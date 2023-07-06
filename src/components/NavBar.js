@@ -10,7 +10,6 @@ function classNames(...classes) {
 }
 
 function NavBar() {
-  const base_uri = "/FetchFind";
   const navigate = useNavigate();
 
   const favorites = async () => {
@@ -42,10 +41,16 @@ function NavBar() {
             <div className="relative flex h-16 items-center justify-between">
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <a className="block lg:hidden" href={`${base_uri}/find`}>
+                  <a
+                    className="block lg:hidden"
+                    href={`${process.env.PUBLIC_URL}/find`}
+                  >
                     <NavLogo />
                   </a>
-                  <a className="hidden lg:block" href={`${base_uri}/find`}>
+                  <a
+                    className="hidden lg:block"
+                    href={`${process.env.PUBLIC_URL}/find`}
+                  >
                     <NavLogo />
                   </a>
                 </div>

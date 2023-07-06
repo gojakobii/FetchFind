@@ -3,15 +3,13 @@ import React from "react";
 import FooterLogo from "../assets/FooterLogo";
 
 function Footer() {
-  const base_uri = "/FetchFind";
-
   return (
     <footer className="bg-footer-texture bg-center bg-no-repeat">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="my-6 md:flex md:justify-between">
           <div className="md:mb-0">
             <a
-              href={`${base_uri}/find`}
+              href={`${process.env.PUBLIC_URL}/find`}
               className="flex items-center justify-center"
             >
               <FooterLogo />
