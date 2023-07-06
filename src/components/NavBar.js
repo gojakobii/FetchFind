@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useRouteMatch } from "react-router-dom";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { HeartIcon } from "@heroicons/react/24/outline";
 
@@ -10,6 +10,7 @@ function classNames(...classes) {
 }
 
 function NavBar() {
+  const { path } = useRouteMatch();
   const navigate = useNavigate();
 
   const favorites = async () => {
@@ -41,10 +42,10 @@ function NavBar() {
             <div className="relative flex h-16 items-center justify-between">
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <a className="block lg:hidden" href="/find">
+                  <a className="block lg:hidden" href={`${path}/find`}>
                     <NavLogo />
                   </a>
-                  <a className="hidden lg:block" href="/find">
+                  <a className="hidden lg:block" href={`${path}/find`}>
                     <NavLogo />
                   </a>
                 </div>
