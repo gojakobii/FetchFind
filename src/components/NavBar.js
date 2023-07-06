@@ -1,37 +1,37 @@
-import { Fragment } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { HeartIcon } from '@heroicons/react/24/outline'
+import { Fragment } from "react";
+import { useNavigate } from "react-router-dom";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { HeartIcon } from "@heroicons/react/24/outline";
 
-import NavLogo from "../assets/NavLogo"
+import NavLogo from "../assets/NavLogo";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
-export default function Example() {
+function NavBar() {
   const navigate = useNavigate();
 
   const favorites = async () => {
     navigate("/favorites");
-  }
+  };
 
   const logout = async () => {
-    const url = 'https://frontend-take-home-service.fetch.com/auth/logout';
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            credentials: 'include',
-        });
+    const url = "https://frontend-take-home-service.fetch.com/auth/logout";
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
 
-        if (response.ok) {
-            navigate("/login");
-        } else {
-            console.error('Logout failed');
-        }
-  }
+    if (response.ok) {
+      navigate("/login");
+    } else {
+      console.error("Logout failed");
+    }
+  };
 
   return (
     <Disclosure as="nav" id="navbar" className="bg-white">
@@ -41,12 +41,12 @@ export default function Example() {
             <div className="relative flex h-16 items-center justify-between">
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                    <a className="block lg:hidden" href="/find">
-                        <NavLogo />
-                    </a>
-                    <a className="hidden lg:block" href="/find">
-                        <NavLogo />
-                    </a>
+                  <a className="block lg:hidden" href="/find">
+                    <NavLogo />
+                  </a>
+                  <a className="hidden lg:block" href="/find">
+                    <NavLogo />
+                  </a>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -65,7 +65,18 @@ export default function Example() {
                     <Menu.Button className="flex p-0.5 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#551653]">
                       <span className="sr-only">Open user menu</span>
                       <div className="relative w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                          <svg className="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path></svg>
+                        <svg
+                          className="absolute w-12 h-12 text-gray-400 -left-1"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                            clipRule="evenodd"
+                          ></path>
+                        </svg>
                       </div>
                     </Menu.Button>
                   </div>
@@ -83,7 +94,10 @@ export default function Example() {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Your Profile
                           </a>
@@ -93,7 +107,10 @@ export default function Example() {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Settings
                           </a>
@@ -104,7 +121,10 @@ export default function Example() {
                           <a
                             href="#"
                             onClick={logout}
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm text-gray-700"
+                            )}
                           >
                             Sign out
                           </a>
@@ -119,5 +139,7 @@ export default function Example() {
         </>
       )}
     </Disclosure>
-  )
+  );
 }
+
+export default NavBar;
