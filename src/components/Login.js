@@ -12,11 +12,6 @@ function Login() {
     const name = inputName.current.value;
     const email = inputEmail.current.value;
 
-    if (!name || !email) {
-      return console.log("You must provide both a name and email!");
-    }
-
-    event.preventDefault();
     const url = "https://frontend-take-home-service.fetch.com/auth/login";
     const response = await fetch(url, {
       method: "POST",
@@ -184,6 +179,8 @@ function Login() {
                 type="email"
                 autoComplete="email"
                 required
+                pattern="[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}"
+                title="e.g. fetchfrontend@gmail.com"
               />
               <button
                 type="submit"
