@@ -145,14 +145,14 @@ function Login() {
           <h2 className="mt-2 text-5xl leading-9 font-syne tracking-tight">
             your forever friend
           </h2>
-          <p className="mt-5 font-lexend text-lg">
+          <p className="mt-7 md:mt-5 font-lexend text-lg">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
           </p>
         </div>
-        <div className="relative flex flex-col justify-center mt-5 md:mt-0 w-full md:w-72">
+        <div className="relative flex flex-col justify-center mt-7 md:mt-0 w-full md:w-72">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-[400px] -translate-y-1/2 -z-[20] hidden md:block">
             <div className="w-[1000px] h-[1000px] rounded-full opacity-80 bg-[#b4e6de] blur-lg"></div>
           </div>
@@ -201,6 +201,10 @@ function Login() {
               </a>
             </p>
           </div>
+          <p className="mt-7 md:mt-5 font-lexend text-xs text-gray-600 w-[100%] text-center bottom-5">
+            Disclaimer: Several features are purely aesthetic, e.g. no
+            functionality exists for creating an account.
+          </p>
         </div>
       </div>
     </div>
