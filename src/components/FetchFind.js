@@ -29,7 +29,8 @@ function FetchFind(props) {
   const [showSize, setShowSize] = useState(0);
   const [totalResults, setTotalResults] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
-  const [sort, setSort] = useState("asc");
+  const [sortParam, setSortParam] = useState("breed");
+  const [sortOrder, setSortOrder] = useState("asc");
   const { favorites } = useFavorites();
   const size = 40;
 
@@ -47,7 +48,7 @@ function FetchFind(props) {
       const url = `https://frontend-take-home-service.fetch.com/dogs/search?size=${size}&from=${
         (page - 1) * size
       }
-              &ageMin=${minAge}&ageMax=${maxAge}&${queryString}&sort=breed:${sort}`;
+              &ageMin=${minAge}&ageMax=${maxAge}&${queryString}&sort=${sortParam}:${sortOrder}`;
       const response = await fetch(url, {
         method: "GET",
         credentials: "include",
@@ -86,7 +87,7 @@ function FetchFind(props) {
     };
 
     findDogs();
-  }, [page, sort, minAge, maxAge, selectedBreeds]);
+  }, [page, sortParam, sortOrder, minAge, maxAge, selectedBreeds]);
 
   useEffect(() => {
     const getDogBreeds = async () => {
@@ -336,9 +337,9 @@ function FetchFind(props) {
                     <div className="py-1">
                       <Menu.Item
                         key="asc_breed"
-                        value="asc"
                         onClick={() => {
-                          setSort("asc");
+                          setSortParam("breed");
+                          setSortOrder("asc");
                           setPage(1);
                         }}
                       >
@@ -346,7 +347,7 @@ function FetchFind(props) {
                           <a
                             href="#"
                             className={classNames(
-                              sort === "asc"
+                              sortOrder === "asc" && sortParam === "breed"
                                 ? "font-medium text-gray-900"
                                 : "text-gray-500",
                               active ? "bg-gray-100" : "",
@@ -359,9 +360,9 @@ function FetchFind(props) {
                       </Menu.Item>
                       <Menu.Item
                         key="desc_breed"
-                        value="desc"
                         onClick={() => {
-                          setSort("desc");
+                          setSortParam("breed");
+                          setSortOrder("desc");
                           setPage(1);
                         }}
                       >
@@ -369,7 +370,7 @@ function FetchFind(props) {
                           <a
                             href="#"
                             className={classNames(
-                              sort === "desc"
+                              sortOrder === "desc" && sortParam === "breed"
                                 ? "font-medium text-gray-900"
                                 : "text-gray-500",
                               active ? "bg-gray-100" : "",
@@ -377,6 +378,52 @@ function FetchFind(props) {
                             )}
                           >
                             Breed: Descending
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item
+                        key="asc_age"
+                        onClick={() => {
+                          setSortParam("age");
+                          setSortOrder("asc");
+                          setPage(1);
+                        }}
+                      >
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(
+                              sortOrder === "asc" && sortParam === "age"
+                                ? "font-medium text-gray-900"
+                                : "text-gray-500",
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm"
+                            )}
+                          >
+                            Age: Ascending
+                          </a>
+                        )}
+                      </Menu.Item>
+                      <Menu.Item
+                        key="desc_age"
+                        onClick={() => {
+                          setSortParam("age");
+                          setSortOrder("desc");
+                          setPage(1);
+                        }}
+                      >
+                        {({ active }) => (
+                          <a
+                            href="#"
+                            className={classNames(
+                              sortOrder === "desc" && sortParam === "age"
+                                ? "font-medium text-gray-900"
+                                : "text-gray-500",
+                              active ? "bg-gray-100" : "",
+                              "block px-4 py-2 text-sm"
+                            )}
+                          >
+                            Age: Descending
                           </a>
                         )}
                       </Menu.Item>

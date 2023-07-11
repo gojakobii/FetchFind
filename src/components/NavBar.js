@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { HeartIcon } from "@heroicons/react/24/outline";
@@ -10,6 +10,8 @@ function classNames(...classes) {
 }
 
 function NavBar() {
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
   const navigate = useNavigate();
 
   const favorites = async () => {
@@ -33,8 +35,32 @@ function NavBar() {
     }
   };
 
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY;
+
+    if (currentScrollPos > prevScrollPos) {
+      setVisible(false);
+    } else {
+      setVisible(true);
+    }
+
+    setPrevScrollPos(currentScrollPos);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
+
   return (
-    <Disclosure as="nav" id="navbar" className="bg-white">
+    <Disclosure
+      as="nav"
+      id="navbar"
+      className={`sticky top-0 transition-all duration-[350ms] ${
+        visible ? "" : "translate-y-[-110px]"
+      } ${window.scrollY === 0 ? "" : "shadow-md"} bg-white z-10`}
+    >
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 py-5 sm:px-6 lg:px-8">
