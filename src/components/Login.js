@@ -37,9 +37,9 @@ function Login() {
 
   return (
     <div className="static overflow-hidden">
-      <div className="fixed min-h-screen min-w-[100vw] -z-[20] bg-gradient-to-r from-[#b3efef] to-[#9ddfe0] flex flex-col md:flex-row justify-center md:justify-around px-6 py-12 lg:px-8">
-        <div className="relative flex flex-col justify-center w-full text-center md:text-left md:w-[400px] text-[#2d0f38]">
-          <div className="absolute left-1/2 transform -translate-x-[250px] -translate-y-[150px] -z-[20] hidden md:block">
+      <div className="fixed min-h-screen min-w-[100vw] -z-[20] bg-gradient-to-r from-[#b3efef] to-[#8dcfdb] md:to-[#9ddfe0] flex flex-col md:flex-row justify-center md:justify-around px-6 py-12 lg:px-8">
+        <div className="hidden md:flex flex-col relative justify-center w-full text-center md:text-left md:w-[400px] text-[#2d0f38]">
+          <div className="absolute left-1/2 transform -translate-x-[250px] -translate-y-[150px] -z-[20]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -55,7 +55,7 @@ function Login() {
               />
             </svg>
           </div>
-          <div className="absolute right-0 transform -translate-x-[60px] -translate-y-[116px] -z-[20] hidden md:block">
+          <div className="absolute right-0 transform -translate-x-[60px] -translate-y-[116px] -z-[20]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -71,7 +71,7 @@ function Login() {
               />
             </svg>
           </div>
-          <div className="absolute right-0 transform translate-x-[20px] -translate-y-[66px] -z-[20] hidden md:block">
+          <div className="absolute right-0 transform translate-x-[20px] -translate-y-[66px] -z-[20]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -87,7 +87,7 @@ function Login() {
               />
             </svg>
           </div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-[225px] translate-y-[155px] -z-[20] hidden md:block">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-[225px] translate-y-[155px] -z-[20]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -103,7 +103,7 @@ function Login() {
               />
             </svg>
           </div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-[250px] translate-y-[130px] -z-[20] hidden md:block">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-[250px] translate-y-[130px] -z-[20]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -119,7 +119,7 @@ function Login() {
               />
             </svg>
           </div>
-          <div className="absolute top-1/2 right-0 transform -translate-x-[135px] translate-y-[110px] -z-[20] hidden md:block">
+          <div className="absolute top-1/2 right-0 transform -translate-x-[135px] translate-y-[110px] -z-[20]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -135,17 +135,17 @@ function Login() {
               />
             </svg>
           </div>
-          <div className="absolute right-0 transform -translate-x-[60px] -translate-y-[130px] -z-[20] hidden md:block">
+          <div className="absolute right-0 transform -translate-x-[60px] -translate-y-[130px] -z-[20]">
             <div className="w-2 h-2 rounded-full bg-[#69bac8]"></div>
           </div>
-          <div className="absolute left-1/2 transform -translate-x-[220px] -translate-y-[130px] -z-[20] hidden md:block">
+          <div className="absolute left-1/2 transform -translate-x-[220px] -translate-y-[130px] -z-[20]">
             <div className="w-2 h-2 rounded-full bg-[#69bac8]"></div>
           </div>
           <h1 className="text-5xl block font-syne font-extrabold">FETCH</h1>
           <h2 className="mt-2 text-5xl leading-9 font-syne tracking-tight">
             your forever friend
           </h2>
-          <p className="mt-7 md:mt-5 font-lexend text-lg">
+          <p className="md:mt-5 font-lexend text-lg">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -216,11 +216,11 @@ function Login() {
                 Sign up now
               </a>
             </p>
+            <p className="mt-7 md:mt-5 font-lexend text-xs text-gray-600 w-[100%] text-center">
+              Disclaimer: Several features are purely aesthetic, e.g. no
+              functionality exists for creating an account.
+            </p>
           </div>
-          <p className="mt-7 md:mt-5 font-lexend text-xs text-gray-600 w-[100%] text-center bottom-5">
-            Disclaimer: Several features are purely aesthetic, e.g. no
-            functionality exists for creating an account.
-          </p>
         </div>
       </div>
     </div>
