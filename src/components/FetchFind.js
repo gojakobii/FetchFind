@@ -18,7 +18,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function FetchFind(props) {
+function FetchFind() {
   const [minAge, setMinAge] = useState();
   const [maxAge, setMaxAge] = useState();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
